@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Task 16</title>
+  <style>
+    body {
+      background-color: #fef7e5;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    .question-box {
+      background-color: #f0f8ff;
+      border: 3px solid #007acc;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px auto;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .output {
+      margin-top: 10px;
+      color: #222;
+      font-weight: bold;
+      background-color: #e1f5fe;
+      padding: 10px;
+      border-radius: 6px;
+    }
+
+    button {
+      padding: 8px 16px;
+      background-color: #007acc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #005f99;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Task 16 - JavaScript Practice Questions</h2>
+
+  <!-- QUESTION 1 -->
+  <div class="question-box">
+    <p><strong>Question No: 01 - Function: filterNegativeNum()</strong></p>
+    <p>Enter 5 numbers. The system will separate negative and non-negative numbers.</p>
+    <button onclick="filterNegativeNum()">Run Question 01</button>
+    <div id="output1" class="output"></div>
+  </div>
+
+  <!-- QUESTION 2 -->
+  <div class="question-box">
+    <p><strong>Question No: 02 - Function: differenceFrom13()</strong></p>
+    <p>Enter a number. If it's more than 13, it returns double the difference, else simple difference.</p>
+    <button onclick="differenceFrom13()">Run Question 02</button>
+    <div id="output2" class="output"></div>
+  </div>
+
+  <!-- QUESTION 3 -->
+  <div class="question-box">
+    <p><strong>Question No: 03 - Function: fibonacci()</strong></p>
+    <p>Enter how many terms of Fibonacci series you want.</p>
+    <button onclick="fibonacci()">Run Question 03</button>
+    <div id="output3" class="output"></div>
+  </div>
+
+  <!-- QUESTION 4 -->
+  <div class="question-box">
+    <p><strong>Question No: 04 - Function: multipleAndAdd()</strong></p>
+    <p>It will sum all numbers divisible by both 3 and 5 from 1 to 1000.</p>
+    <button onclick="multipleAndAdd()">Run Question 04</button>
+    <div id="output4" class="output"></div>
+  </div>
+
+  <!-- QUESTION 5 -->
+  <div class="question-box">
+    <p><strong>Question No: 05 - Function: cubeNumber()</strong></p>
+    <p>Enter a number to find its cube.</p>
+    <button onclick="cubeNumber()">Run Question 05</button>
+    <div id="output5" class="output"></div>
+  </div>
+
+  <script>
+    function filterNegativeNum() {
+      let neg = [];
+      let nonNeg = [];
+      for (let i = 0; i < 5; i++) {
+        let num = Number(prompt("Question 01:\nEnter number " + (i + 1) + ":"));
+        if (num > 0) {
+          nonNeg.push(num);
+        } else if (num < 0) {
+          neg.push(num);
+        }
+      }
+      document.getElementById("output1").innerHTML =
+        "Negative Numbers: " + neg.join(", ") + "<br>" +
+        "Non-negative Numbers: " + nonNeg.join(", ");
+    }
+
+    function differenceFrom13() {
+      let num = Number(prompt("Question 02:\nEnter a number:"));
+      let result = num > 13 ? 2 * (num - 13) : 13 - num;
+      document.getElementById("output2").innerHTML =
+        "Input: " + num + "<br>Result: " + result;
+    }
+
+    function fibonacci() {
+      let n = Number(prompt("Question 03:\nEnter number of Fibonacci terms:"));
+      let f = [0, 1];
+      for (let i = 2; i < n; i++) {
+        f.push(f[i - 1] + f[i - 2]);
+      }
+      document.getElementById("output3").innerHTML =
+        "Fibonacci series: " + f.slice(0, n).join(", ");
+    }
+
+    function multipleAndAdd() {
+      let sum = 0;
+      for (let i = 0; i <= 1000; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+          sum += i;
+        }
+      }
+      document.getElementById("output4").innerHTML =
+        "Sum of multiples of 3 and 5 under 1000: " + sum;
+    }
+
+    function cubeNumber() {
+      let n = Number(prompt("Question 05:\nEnter a number to cube:"));
+      let cube = n ** 3;
+      document.getElementById("output5").innerHTML =
+        "Cube of " + n + " is: " + cube;
+    }
+  </script>
+
+</body>
+</html>
